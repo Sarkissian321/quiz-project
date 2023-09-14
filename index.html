@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⌛️Coding Quiz</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="header"></div>
+        <div>
+            <button class="button" id="high-scores">Highscores</button>
+        </div>
+
+       <section>
+            <div id="countdown"></div>
+       </section>
+    </header>
+    <main>
+        <section>
+            <div>
+                <p class=" instructions">Practice your coding knowledge with this timed quiz. Try to answer the questions correctly within the
+                    timed unit. For each wrong answer, time remaining will be reduced even further!</p>
+            </div>
+            <section>
+                <div>
+                    <h1 class="questions">Questions</h1>
+                    <button id="start-quiz"  class=" start-btn">START the QUIZ</button>
+                    <div>
+                        <ul>
+                            <li><button class="options button" id="answer-one" value="a">Answer1</button></li>
+                            <li><button class="options button" id="answer_two" value="b">Answer2</button></li>
+                            <li><button class="options button" id="answer_three" value="c">Answer3</button></li>
+                            <li><button class="options button" id="answer_four" value="d">Answer4</button></li>
+                        </ul>
+                        <div>
+                       
+                            <div id="check_answers">
+                                <p>Correct or Wrong</p>
+                            </div>
+            </section>
+
+            <section class="highscores-section" id ="highscores-section">
+                <div>
+                    <h2>High Scores</h2>
+            
+                    <div>
+                        <button class="button" id="back_btn">Go back</button>
+                        <button class="button" id="clear_btn">Clear Highscores</button>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p id="footer">🧚‍♀️Made by Meline🧚‍♀️</p>
+    </footer>
+    <script src="/assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+
+* {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+
+#countdown {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+
+main section div .instructions {
+    display: block;
+    text-align: center;
+    margin: auto;
+    height: 50px;
+    width: 800px;
+}
+
+
+
+ul, #check_answers, h1 {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+
+li {
+    margin: 10px;
+}
+
+#start-quiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+
+#footer { 
+    text-align: center;
+    width: 100%;
+}
