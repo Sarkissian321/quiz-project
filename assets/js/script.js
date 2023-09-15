@@ -1,34 +1,45 @@
-// Set the countdown time in seconds
-var countdownTimeInSeconds = 120;
+var countdownElement = document.getElementById("countdown");
+//initial time in seconds
+var timeLeft = 120;
 
-// Getting the countdown element from the HTML
-var countdownElement = document.getElementById('countdown');
+var score = 0;
+var currentQuestionIndex = 0;
 
-function updateCountdown() {
-    var minutes = Math.floor(countdownTimeInSeconds / 60);
-    var seconds = countdownTimeInSeconds % 60;
-
-    // Countdown clock:
-    countdownElement.innerHTML = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-
-    // has the countdown reached zero?
-    if (countdownTimeInSeconds <= 0) {
-        clearInterval(countdownInterval);
-        countdownElement.innerHTML = 'Time is up!';
+function startCountdown() {
+  const countdownInterval = setInterval(function () {
+    if (timeLeft > 0) {
+      countdownElement.textContent = `Time Left: ${timeLeft} seconds`;
+      timeLeft--;
     } else {
-        countdownTimeInSeconds--;
+      clearInterval(countdownInterval);
+    //maybe we can show the results of the quiz here?
     }
+  }, 1000);
 }
 
-// Call the updateCountdown function every second (1000 milliseconds)
-const countdownInterval = setInterval(updateCountdown, 1000);
+document.getElementById("start-quiz").addEventListener("click", function () {
+  startCountdown();
+var introSection = document.getElementById("intro");
+var quizSection = document.getElementById("quiz");
+
+introSection.classList.add("hide");
+quizSection.classList.remove("hide");
+
+});
+
+var texth1 = document.getElementById("text-questions");
+var button1 = document.getElementById("answer_one");
+var button2 = document.getElementById("answer_two");
+var button3 = document.getElementById("answer_three");
+var button4 = document.getElementById("answer_four");
+
 
 // Quiz questions and answers:
 var quiz = [
     {
       question: "Commonly used data types DO Not Include:",
-      answers: ["Answer Strings", "Booleans", "Alerts", "Numbers"],
-      correctAnswer: 3, // Index of the correct answer in the 'answers' array
+      answers: ["Strings", "Booleans", "Alerts", "Numbers"],
+      correctAnswer: 2, // Index of the correct answer in the 'answers' array
     },
 
     {
@@ -57,3 +68,45 @@ var quiz = [
    
    
   ];
+
+  texth1.textContent = quiz[0].question
+  button1.textContent = quiz[0].answers[0]
+  button2.textContent = quiz[0].answers[1]
+  button3.textContent = quiz[0].answers[2]
+  button4.textContent = quiz[0].answers[3]
+
+  function checkAnswer(event) {
+var correctAnswer = quiz[0].answers[2];
+var selectedAnswer = event.target.textContent
+if (correctAnswer == selectedAnswer) {alert("Correct")}
+  }
+  button1.addEventListener("click", checkAnswer);
+  button2.addEventListener("click", checkAnswer);
+  button3.addEventListener("click", checkAnswer);
+  button4.addEventListener("click", checkAnswer);
+
+
+
+  texth1.textContent = quiz[1].question
+  button1.textContent = quiz[1].answers[0]
+  button2.textContent = quiz[1].answers[1]
+  button3.textContent = quiz[1].answers[2]
+  button4.textContent = quiz[1].answers[3]
+
+  texth1.textContent = quiz[2].question
+  button1.textContent = quiz[2].answers[0]
+  button2.textContent = quiz[2].answers[1]
+  button3.textContent = quiz[2].answers[2]
+  button4.textContent = quiz[2].answers[3]
+
+  texth1.textContent = quiz[3].question
+  button1.textContent = quiz[3].answers[0]
+  button2.textContent = quiz[3].answers[1]
+  button3.textContent = quiz[3].answers[2]
+  button4.textContent = quiz[3].answers[3]
+
+  texth1.textContent = quiz[4].question
+  button1.textContent = quiz[4].answers[0]
+  button2.textContent = quiz[4].answers[1]
+  button3.textContent = quiz[4].answers[2]
+  button4.textContent = quiz[4].answers[3]

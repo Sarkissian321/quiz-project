@@ -15,45 +15,49 @@
             <button class="button" id="high-scores">Highscores</button>
         </div>
 
-       <section>
+        <section>
             <div id="countdown"></div>
-       </section>
+        </section>
     </header>
     <main>
-        <section>
+        <section id = "intro">
             <div>
-                <p class=" instructions">Practice your coding knowledge with this timed quiz. Try to answer the questions correctly within the
+                <p class=" instructions">Practice your coding knowledge with this timed quiz. Try to answer the
+                    questions correctly within the
                     timed unit. For each wrong answer, time remaining will be reduced even further!</p>
             </div>
-            <section>
-                <div>
-                    <h1 class="questions">Questions</h1>
-                    <button id="start-quiz"  class=" start-btn">START the QUIZ</button>
-                    <div>
-                        <ul>
-                            <li><button class="options button" id="answer-one" value="a">Answer1</button></li>
-                            <li><button class="options button" id="answer_two" value="b">Answer2</button></li>
-                            <li><button class="options button" id="answer_three" value="c">Answer3</button></li>
-                            <li><button class="options button" id="answer_four" value="d">Answer4</button></li>
-                        </ul>
-                        <div>
-                       
-                            <div id="check_answers">
-                                <p>Correct or Wrong</p>
-                            </div>
-            </section>
-
-            <section class="highscores-section" id ="highscores-section">
-                <div>
-                    <h2>High Scores</h2>
-            
-                    <div>
-                        <button class="button" id="back_btn">Go back</button>
-                        <button class="button" id="clear_btn">Clear Highscores</button>
-                    </div>
-                </div>
-            </section>
+            <button id="start-quiz" class=" start-btn">START the QUIZ</button>
         </section>
+
+        <section id ="quiz" class="hide">
+            <div>
+                <h1 id ="text-questions"   class="questions">Questions</h1>
+
+                <div>
+                    <ul>
+                        <li><button class="options button" id="answer_one" value="a">Answer1</button></li>
+                        <li><button class="options button" id="answer_two" value="b">Answer2</button></li>
+                        <li><button class="options button" id="answer_three" value="c">Answer3</button></li>
+                        <li><button class="options button" id="answer_four" value="d">Answer4</button></li>
+                    </ul>
+                    <div>
+
+                        <div id="check_answers">
+                            <p>Correct or Wrong</p>
+                        </div>
+        </section>
+
+        <section class="highscores-section hide" id="highscores-section">
+            <div>
+                <h2>High Scores</h2>
+
+                <div>
+                    <button class="button" id="back_btn">Go back</button>
+                    <button class="button" id="clear_btn">Clear Highscores</button>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="footer">
