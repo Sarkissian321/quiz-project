@@ -6,21 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⌛️Coding Quiz</title>
     <link rel="stylesheet" href="/assets/css/style.css" />
+  
 </head>
 
 <body>
+
     <header>
         <div class="header"></div>
-        <div>
-            <button class="button" id="high-scores">Highscores</button>
-        </div>
 
         <section>
             <div id="countdown"></div>
         </section>
     </header>
     <main>
-        <section id = "intro">
+        <section id="intro">
             <div>
                 <p class=" instructions">Practice your coding knowledge with this timed quiz. Try to answer the
                     questions correctly within the
@@ -29,9 +28,9 @@
             <button id="start-quiz" class=" start-btn">START the QUIZ</button>
         </section>
 
-        <section id ="quiz" class="hide">
+        <section id="quiz" class="hide">
             <div>
-                <h1 id ="text-questions"   class="questions">Questions</h1>
+                <h1 id="text-questions" class="questions">Questions</h1>
 
                 <div>
                     <ul>
@@ -43,21 +42,32 @@
                     <div>
 
                         <div id="check_answers">
-                            <pre id = "correct">Correct</pre>
-                            <pre id = "not-quite">Not Quite</pre>
                         </div>
         </section>
 
-        <section class="highscores-section hide" id="highscores-section">
+        <section class="highscores-section hide" id="high-scores-list">
             <div>
                 <h2>High Scores</h2>
-
                 <div>
-                    <button class="button" id="back_btn">Go back</button>
-                    <button class="button" id="clear_btn">Clear Highscores</button>
+                    <button class="button" id="view-high-scores">View High scores</button>
                 </div>
+
             </div>
         </section>
+
+        <section id="done" class="hide">
+            <div id="all-done">
+                <h2>All Done!</h2>
+                <p>Your score: <span id="final-score">0</span></p>
+                <label id ="enter-name" for="player-name">Enter your name:</label>
+                <input type="text" id="player-name" placeholder="Your Name">
+                <button id="submit-score">Submit Score</button>
+                <a href="highscores.html" id = "view-score-button" class="button">View High Scores</a>
+
+        </section>
+
+
+
 
     </main>
 

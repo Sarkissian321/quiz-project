@@ -60,3 +60,23 @@ footer {
   width: 100%;
   text-align: center;
 }
+
+#all-done {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    height: 50vh;
+}
+
+#view-score-button {
+    padding: 20px;
+}
+
+#submit-score {
+    margin: 20px;
+}
+
+#enter-name {
+    margin: 10px;
+}
