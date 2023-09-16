@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+background-image: url(https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80);
+}
+
 .hide {
     display: none;
 }
@@ -11,7 +19,7 @@
     font-size: 2em;
     text-align: center;
     margin-top: 20px;
-    color: #333;
+    color: #000000;
 }
 
 
@@ -21,6 +29,7 @@ main section div .instructions {
     margin: auto;
     height: 50px;
     width: 800px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 
@@ -46,15 +55,8 @@ li {
 
 
 footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    flex-wrap: wrap;
-    padding-top: 30px;
-    margin-bottom: 30px;
-}
-
-#footer { 
-    text-align: center;
-    width: 100%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
