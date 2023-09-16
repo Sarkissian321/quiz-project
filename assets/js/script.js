@@ -131,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
   highScoresList.innerHTML = "";
 
+
   highScores.forEach(function (entry) {
     var listItem = document.createElement("li");
     listItem.textContent = entry.name + ": " + entry.score;
