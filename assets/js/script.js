@@ -32,17 +32,14 @@ function startCountdown() {
   }, 1000);
 }
 
-var submitScoreButton = document.getElementById("submit-score");
-if (submitScoreButton) {
-  submitScoreButton.addEventListener("click", function () {
+
     document.getElementById("start-quiz").addEventListener("click", function () {
       startCountdown();
       introSection.classList.add("hide");
       quizSection.classList.remove("hide");
       displayQuestion();
     });
-  });
-} 
+
 
 
 
@@ -83,15 +80,12 @@ function displayQuestion() {
   button3.textContent = quiz[currentQuestionIndex].answers[2];
   button4.textContent = quiz[currentQuestionIndex].answers[3];
 }
-var goBackButton = document.getElementById("go-back");
-if (goBackButton) {
-  goBackButton.addEventListener("click", function () {
+
+ 
     button1.addEventListener("click", checkAnswer);
     button2.addEventListener("click", checkAnswer);
     button3.addEventListener("click", checkAnswer);
     button4.addEventListener("click", checkAnswer);
-  });
-}
 
 
 function checkAnswer(event) {
@@ -123,9 +117,7 @@ function checkAnswer(event) {
   }
 }
 
-var clearScoresButton = document.getElementById("clear-scores");
-if (clearScoresButton) {
-  clearScoresButton.addEventListener("click", function () {
+
     document.getElementById("submit-score").addEventListener("click", function () {
       var playerName = document.getElementById("player-name").value;
       if (playerName) {
@@ -140,11 +132,8 @@ if (clearScoresButton) {
         alert("Please enter your name.");
       }
     });    
-  });
-} 
-var goBackButton = document.getElementById("go-back");
-if (goBackButton) {
-  goBackButton.addEventListener("click", function () {
+
+
     document.getElementById("submit-score").addEventListener("click", function () {
       var playerName = document.getElementById("player-name").value;
       if (playerName) {
@@ -160,8 +149,7 @@ if (goBackButton) {
       }
     });
     
-  });
-}
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
