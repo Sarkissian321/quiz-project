@@ -13,6 +13,12 @@
     align-items: center;
 }
 
+#high-scores-list {
+  list-style: none;
+  text-align: center;
+  margin-bottom: 100px;
+  font-size: 25px;
+}
 #buttons {
   display: flex;
   justify-content: center;

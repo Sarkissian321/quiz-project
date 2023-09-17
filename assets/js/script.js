@@ -32,12 +32,20 @@ function startCountdown() {
   }, 1000);
 }
 
-document.getElementById("start-quiz").addEventListener("click", function () {
-  startCountdown();
-  introSection.classList.add("hide");
-  quizSection.classList.remove("hide");
-  displayQuestion();
-});
+var submitScoreButton = document.getElementById("submit-score");
+if (submitScoreButton) {
+  submitScoreButton.addEventListener("click", function () {
+    document.getElementById("start-quiz").addEventListener("click", function () {
+      startCountdown();
+      introSection.classList.add("hide");
+      quizSection.classList.remove("hide");
+      displayQuestion();
+    });
+  });
+} 
+
+
+
 
 // Quiz questions and answers:
 var quiz = [
@@ -75,11 +83,16 @@ function displayQuestion() {
   button3.textContent = quiz[currentQuestionIndex].answers[2];
   button4.textContent = quiz[currentQuestionIndex].answers[3];
 }
+var goBackButton = document.getElementById("go-back");
+if (goBackButton) {
+  goBackButton.addEventListener("click", function () {
+    button1.addEventListener("click", checkAnswer);
+    button2.addEventListener("click", checkAnswer);
+    button3.addEventListener("click", checkAnswer);
+    button4.addEventListener("click", checkAnswer);
+  });
+}
 
-button1.addEventListener("click", checkAnswer);
-button2.addEventListener("click", checkAnswer);
-button3.addEventListener("click", checkAnswer);
-button4.addEventListener("click", checkAnswer);
 
 function checkAnswer(event) {
   if (!quizCompleted) {
@@ -110,20 +123,45 @@ function checkAnswer(event) {
   }
 }
 
-document.getElementById("submit-score").addEventListener("click", function () {
-  var playerName = document.getElementById("player-name").value;
-  if (playerName) {
-    var playerScore = score;
-    var playerInfo = { name: playerName, score: playerScore };
-    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-    highScores.push(playerInfo);
-    highScores.sort((a, b) => b.score - a.score);
-    localStorage.setItem("highScores", JSON.stringify(highScores));
-    window.location.href = "highscores.html";
-  } else {
-    alert("Please enter your name.");
-  }
-});
+var clearScoresButton = document.getElementById("clear-scores");
+if (clearScoresButton) {
+  clearScoresButton.addEventListener("click", function () {
+    document.getElementById("submit-score").addEventListener("click", function () {
+      var playerName = document.getElementById("player-name").value;
+      if (playerName) {
+        var playerScore = score;
+        var playerInfo = { name: playerName, score: playerScore };
+        var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+        highScores.push(playerInfo);
+        highScores.sort((a, b) => b.score - a.score);
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+        window.location.href = "highscores.html";
+      } else {
+        alert("Please enter your name.");
+      }
+    });    
+  });
+} 
+var goBackButton = document.getElementById("go-back");
+if (goBackButton) {
+  goBackButton.addEventListener("click", function () {
+    document.getElementById("submit-score").addEventListener("click", function () {
+      var playerName = document.getElementById("player-name").value;
+      if (playerName) {
+        var playerScore = score;
+        var playerInfo = { name: playerName, score: playerScore };
+        var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+        highScores.push(playerInfo);
+        highScores.sort((a, b) => b.score - a.score);
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+        window.location.href = "highscores.html";
+      } else {
+        alert("Please enter your name.");
+      }
+    });
+    
+  });
+}
 
 document.addEventListener("DOMContentLoaded", function () {
 
