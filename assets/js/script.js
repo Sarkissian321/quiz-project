@@ -15,6 +15,7 @@ var doneSection = document.getElementById("done");
 var countdownInterval;
 var quizCompleted = false;
 
+// Function to start the countdown timer
 function startCountdown() {
   countdownInterval = setInterval(function () {
     if (!quizCompleted) {
@@ -32,13 +33,13 @@ function startCountdown() {
   }, 1000);
 }
 
-
-    document.getElementById("start-quiz").addEventListener("click", function () {
-      startCountdown();
-      introSection.classList.add("hide");
-      quizSection.classList.remove("hide");
-      displayQuestion();
-    });
+// Event listener to start the quiz when the "Start Quiz" button is clicked
+document.getElementById("start-quiz").addEventListener("click", function () {
+  startCountdown();
+  introSection.classList.add("hide");
+  quizSection.classList.remove("hide");
+  displayQuestion();
+});
 
 
 
@@ -73,6 +74,7 @@ var quiz = [
   },
 ];
 
+// Function to display the current quiz question
 function displayQuestion() {
   texth1.textContent = quiz[currentQuestionIndex].question;
   button1.textContent = quiz[currentQuestionIndex].answers[0];
@@ -81,13 +83,14 @@ function displayQuestion() {
   button4.textContent = quiz[currentQuestionIndex].answers[3];
 }
 
- 
-    button1.addEventListener("click", checkAnswer);
-    button2.addEventListener("click", checkAnswer);
-    button3.addEventListener("click", checkAnswer);
-    button4.addEventListener("click", checkAnswer);
+// Event listeners for answer buttons
+button1.addEventListener("click", checkAnswer);
+button2.addEventListener("click", checkAnswer);
+button3.addEventListener("click", checkAnswer);
+button4.addEventListener("click", checkAnswer);
 
-
+// Function to check the selected answer if they are correct or not and the 
+//penalty of reduced 15 seconds fromtimer if answered wrong.
 function checkAnswer(event) {
   if (!quizCompleted) {
     var correctIndex = quiz[currentQuestionIndex].correctAnswer;
@@ -105,6 +108,7 @@ function checkAnswer(event) {
       currentQuestionIndex++;
       displayQuestion();
     } else {
+      // Quiz completed, display the final score and high scores
       doneSection.classList.remove("hide");
       quizSection.classList.add("hide");
       quizCompleted = true;
@@ -117,57 +121,41 @@ function checkAnswer(event) {
   }
 }
 
+// Event listener to submit the score and save it to local storage
+document.getElementById("submit-score").addEventListener("click", function () {
+  var playerName = document.getElementById("player-name").value;
+  if (playerName) {
+    var playerScore = score;
+    var playerInfo = { name: playerName, score: playerScore };
+    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    highScores.push(playerInfo);
+    highScores.sort((a, b) => b.score - a.score);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    window.location.href = "highscores.html";
+  } else {
+    alert("Please enter your name.");
+  }
+});
 
-    document.getElementById("submit-score").addEventListener("click", function () {
-      var playerName = document.getElementById("player-name").value;
-      if (playerName) {
-        var playerScore = score;
-        var playerInfo = { name: playerName, score: playerScore };
-        var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-        highScores.push(playerInfo);
-        highScores.sort((a, b) => b.score - a.score);
-        localStorage.setItem("highScores", JSON.stringify(highScores));
-        window.location.href = "highscores.html";
-      } else {
-        alert("Please enter your name.");
-      }
-    });    
-
-
-    document.getElementById("submit-score").addEventListener("click", function () {
-      var playerName = document.getElementById("player-name").value;
-      if (playerName) {
-        var playerScore = score;
-        var playerInfo = { name: playerName, score: playerScore };
-        var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-        highScores.push(playerInfo);
-        highScores.sort((a, b) => b.score - a.score);
-        localStorage.setItem("highScores", JSON.stringify(highScores));
-        window.location.href = "highscores.html";
-      } else {
-        alert("Please enter your name.");
-      }
-    });
-    
-
-
+// Event listener to load high scores on page load
 document.addEventListener("DOMContentLoaded", function () {
 
   var highScoresList = document.getElementById("high-scores-list");
   var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
   highScoresList.innerHTML = "";
 
-
+  // Display high scores in a list
   highScores.forEach(function (entry) {
     var listItem = document.createElement("li");
     listItem.textContent = entry.name + ": " + entry.score;
     highScoresList.appendChild(listItem);
   });
-
+  // Event listener to navigate back to the main page
   document.getElementById("go-back").addEventListener("click", function () {
     window.location.href = "index.html";
   });
 
+  // Event listener to clear high scores
   document.getElementById("clear-scores").addEventListener("click", function () {
     localStorage.removeItem("highScores");
     highScoresList.innerHTML = "";
